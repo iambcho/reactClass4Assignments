@@ -32,21 +32,48 @@ class ContactCard extends Component {
 }
 
 
-// class MyCoolComponent extends Component {
-//   constructor(props) {
+class DTitle extends Component {
+  render() {
+    return <h1>Decrement</h1>
+  }
+}
+
+class Decrement extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      clicks: this.props.clicks
+    };
+  }
+
+  Increase = () => {
+    this.setState({ clicks: parseInt(this.state.clicks) + 1 });
+  }
+  Decrease = () => {
+    this.setState({ clicks: parseInt(this.state.clicks) - 1 });
+  }
   
-//   }
-  
-//   render() {
-//   return <div id={this.props.id}>{this.props.message}</div>
-//   }
-//   };
-  
-//   MyCoolComponent.propTypes = {
-//   id: PropTypes.number.isRequired,
-//   message: PropTypes.string
-//   }
-  
+
+  render() {
+
+    return (
+            
+          <div>
+          
+            <h2>{ this.state.clicks }</h2> 
+
+            <button onClick={this.Decrease}>Decrement</button>
+            <button onClick={this.Increase}>Increment</button>
+            
+          </div>
+            
+ 
+    );
+
+  }
+}
+
+
 class App extends Component {
     render() {
       return (
@@ -60,6 +87,13 @@ class App extends Component {
             <ContactCard name="Kumo" mobileNum="333-333-3333" email="email2@gmail.com"/>
             <br/>
             <ContactCard name="Sumi" mobileNum="444-444-4444" email="email3@gmail.com"/>
+
+            <DTitle />
+
+            <Decrement clicks="0" />
+
+            <br/>
+            <p></p>
           </div>
         </div>
         
@@ -84,6 +118,11 @@ ContactCard.propTypes = {
   mobileNum: PropTypes.string.isRequired,
   workNum: PropTypes.string,
   email: PropTypes.string.isRequired
+
+}
+
+Decrement.propTypes = {
+  clicks: PropTypes.number.isRequired
 
 }
 
