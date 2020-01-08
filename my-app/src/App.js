@@ -90,7 +90,7 @@ class App extends Component {
 
             <DTitle />
 
-            <Decrement clicks="0" />
+            <Decrement clicks="10" />
 
             <br/>
             <p></p>
