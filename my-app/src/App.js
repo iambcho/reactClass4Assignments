@@ -50,7 +50,14 @@ class Decrement extends Component {
     this.setState({ clicks: parseInt(this.state.clicks) + 1 });
   }
   Decrease = () => {
-    this.setState({ clicks: parseInt(this.state.clicks) - 1 });
+
+    if(this.state.clicks > 0) {
+      this.setState({ clicks: parseInt(this.state.clicks) - 1 });
+  }
+    else {
+      alert("Cannot be less than zero!");
+    }
+    
   }
   
 
@@ -61,7 +68,7 @@ class Decrement extends Component {
           <div>
           
             <h2>{ this.state.clicks }</h2> 
-
+          
             <button onClick={this.Decrease}>Decrement</button>
             <button onClick={this.Increase}>Increment</button>
             
@@ -90,7 +97,7 @@ class App extends Component {
 
             <DTitle />
 
-            <Decrement clicks="0" />
+            <Decrement clicks="10" />
 
             <br/>
             <p></p>
